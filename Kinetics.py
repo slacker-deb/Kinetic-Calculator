@@ -1,4 +1,18 @@
 import math
+def two_rate_2_temp():
+    r1=float(input("Enter the known rate constant of known tep:"))
+    t1=float(input("Enter the known temp of rate constant:"))
+    r2=float(input("Enter the rate const of unknown temp:"))
+    e=float(input("Enter the activation energy: "))
+    t2=1/((1/t1)-((math.log(r2/r1,math.e)*8.314)/e))
+    return t2
+def two_rate_2_rate():
+    r1=float(input("Enter the known rate constant:"))
+    t1=float(input("Enter the temp of known rate constant:"))
+    e=float(input("Enter the activation energy: "))
+    t2=float(input("Enter the temp of unknown rate constant:"))
+    r2=r1*pow(math.e,((-e)*(t2-t1)/(8.314*t1*t2)))
+    return r2
 def two_rate_2_ea():
     r1=float(input("Enter the first rate constant:"))
     t1=float(input("Enter the temp of first rate constant:"))
@@ -8,32 +22,31 @@ def two_rate_2_ea():
     return e
 def two_rate_2_Arh_const():
     e=two_rate_2_ea()
-    k=float(input("Enter rate constant:"))
+    k=float(input("Enter any rate constant among previously given:"))
     t=float(input("Enter the temp of that rate constant:"))
     a=k/(pow(math.e,((-e)/(8.314*t))))
     return a
 def arh_cons():
     print("Please Put all in SI")
-    e=float(input("Enter the Activation Energy: "))
+    e=float("Enter the Activation Energy: ")
     t=float(input("Enter the temperature in Kelvin: "))
     k=float(input("Enter the  rate Constant: "))
     a=k/(pow(math.e,((-e)/(8.314*t))))
     return a
 def ea():
     print("Please Put all in SI")
-    a=float(input("Enter the Arhenious Constant: "))
+    a=float("Enter the Arhenious Constant: ")
     t=float(input("Enter the temperature in Kelvin: "))
     k=float(input("Enter the  rate Constant: "))
     e=(math.log(a,math.e)-math.log(k,math.e))*8.314*t
     return e
 def collision_temp():
     print("Please Put all in SI")
-    e=float(input("Enter the Activation Energy: "))
-    a=float(input("Enter the Arhenious Constant: "))
+    e=float("Enter the Activation Energy: ")
+    a=float("Enter the Arhenious Constant: ")
     k=float(input("Enter the  rate Constant: "))
     t=e/((math.log(a,math.e)-math.log(k,math.e))*8.314)
     return t
-
 def time(o):
     print("Please put all in same unit for correct result: ")
     ai=float(input("Enter the value of innitial concentration: "))
@@ -122,7 +135,7 @@ elif k==2:
 elif k==4:
     j=0
     while j!=5:
-        j=int(input("Enter 1 to calculate Arhenious Factor\nEnter 2 to find Activation Energy\nPress3 to Find Temp\nPress 4 to find Something using the relation b/w them\nPress 5 to Exit\nEnter your Choice: "))
+        j=int(input("Enter 1 to calculate Arhenious Factor\nEnter 2 to find Activation Energy\nPress3 to Find Temp\nPress 4 to find Something using the relation b/w them Due to change in Temperature\nPress 5 to Exit\nEnter your Choice: "))
         if j==1:
             r=arh_cons()
             print("Arhenious Constant is: ",r)
@@ -135,16 +148,23 @@ elif k==4:
         elif j==4:
             y=0
             while y!=5:
-                y=int(input("press 1 if you need to calculate Activstion energy wrt two rate constant\n Press 2 to calculate Arhenious factor from two rate consatnts:\nPress 3 to calculate One rate constant from other rate constant\nPRess 4 to calculate temperature of A rate with the help of other rate constant at different temparature:\nPress 5 to exit:  "))
+                y=int(input("Press 1 if you need to calculate Activstion energy wrt two rate constant\n Press 2 to calculate Arhenious factor from two rate consatnts:\nPress 3 to calculate One rate constant from other rate constant\nPRess 4 to calculate temperature of A rate with the help of other rate constant at different temparature:\nPress 5 to exit:  "))
                 if y==1:
                     r=two_rate_2_ea()
                     print("Activation energy is: ",r)
                 elif y==2:
                     r=two_rate_2_Arh_const()
                     print("Arhenious Constant is: ",r)
+                elif y==3:
+                    r=two_rate_2_rate()
+                    print("Unknown Rate Constant is: ",r)
+                elif y==4:
+                    r=two_rate_2_temp()
+                    print("Unknown Temp is: ",r)
                 elif y==5:
                     print("Exiting")
         elif j==5:
             print("Exiting...")
 elif k==5:
     print("Good bye")
+# no. 169 aint looking good
