@@ -1,6 +1,6 @@
 import math
 def two_rate_2_temp():
-    r1=float(input("Enter the known rate constant of known tep:"))
+    r1=float(input("Enter the known rate constant of known temp:"))
     t1=float(input("Enter the known temp of rate constant:"))
     r2=float(input("Enter the rate const of unknown temp:"))
     e=float(input("Enter the activation energy: "))
