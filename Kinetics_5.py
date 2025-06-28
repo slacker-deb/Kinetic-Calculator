@@ -14,22 +14,22 @@ def two_rate_2_Arh_const():
     return a
 def arh_cons():
     print("Please Put all in SI")
-    e=float("Enter the Activation Energy: ")
+    e=float(input("Enter the Activation Energy: "))
     t=float(input("Enter the temperature in Kelvin: "))
     k=float(input("Enter the  rate Constant: "))
     a=k/(pow(math.e,((-e)/(8.314*t))))
     return a
 def ea():
     print("Please Put all in SI")
-    a=float("Enter the Arhenious Constant: ")
+    a=float(input("Enter the Arhenious Constant: "))
     t=float(input("Enter the temperature in Kelvin: "))
     k=float(input("Enter the  rate Constant: "))
     e=(math.log(a,math.e)-math.log(k,math.e))*8.314*t
     return e
 def collision_temp():
     print("Please Put all in SI")
-    e=float("Enter the Activation Energy: ")
-    a=float("Enter the Arhenious Constant: ")
+    e=float(input("Enter the Activation Energy: "))
+    a=float(input("Enter the Arhenious Constant: "))
     k=float(input("Enter the  rate Constant: "))
     t=e/((math.log(a,math.e)-math.log(k,math.e))*8.314)
     return t
